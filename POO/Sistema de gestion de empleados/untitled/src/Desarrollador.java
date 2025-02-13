@@ -19,14 +19,10 @@ public class Desarrollador extends Empleado{
 
     @Override
     protected double calcularBono() {
-        return 0;
+        return salarioBase() * (proyectosCompletados / 100.0);
     }
-    public void desarollarModulo(String modulo){
-
+    public String desarollarModulo(String modulo){
+        return modulo;
     }
 
-    @Override
-    public void trabajar(){
-
-    }
 }

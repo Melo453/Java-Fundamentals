@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 
@@ -23,7 +24,16 @@ public class Gerente extends Empleado{
         return salarioBase() * porcentajeBonoExtra;
     }
 
-   public void realizarReunion(){
+    public void agregarEmpleado(Empleado empleadoAsignado){
+        listaEmpleados.add(empleadoAsignado);
+    }
 
+    public List<Empleado> listaEmpleado(){
+        return this.listaEmpleados;
+    }
+   public LocalDate realizarReunion(){
+       LocalDate localDate = LocalDate.now();
+       asistirReunion();
+       return localDate;
    }
 }
