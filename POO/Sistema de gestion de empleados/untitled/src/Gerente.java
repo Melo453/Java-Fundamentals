@@ -11,8 +11,8 @@ public class Gerente extends Empleado{
     }
 
     public Gerente(int id, String nombre, String apellido, String direccion, Date fechaNacimiento,
-                   double salarioBase, Date fechaEntada, int numTelefono, int dni, String departamento, List<Empleado> listaEmpleados, double porcentajeBonoExtra) {
-        super(id, nombre, apellido, direccion, fechaNacimiento, salarioBase, fechaEntada, numTelefono, dni);
+                   double salarioBase, Date fechaEntada, String numTelefono, String areaTelefono, int dni, String departamento, List<Empleado> listaEmpleados, double porcentajeBonoExtra) {
+        super(id, nombre, apellido, direccion, fechaNacimiento, salarioBase, fechaEntada, numTelefono, areaTelefono, dni);
         this.departamento = departamento;
         this.listaEmpleados = listaEmpleados;
         this.porcentajeBonoExtra = porcentajeBonoExtra;

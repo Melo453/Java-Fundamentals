@@ -8,14 +8,15 @@ public abstract class Empleado {
     private Date fechaNacimiento;
     private double salarioBase;
     private Date fechaEntada;
-    private int numTelefono;
+    private String numTelefono;
+    private String areaTelefono;
     private int dni;
 
     public Empleado() {
     }
 
     public Empleado(int id, String nombre, String apellido, String direccion, Date fechaNacimiento,
-                    double salarioBase, Date fechaEntada, int numTelefono, int dni) {
+                    double salarioBase, Date fechaEntada, String numTelefono,String areaTelefono, int dni) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -83,12 +84,20 @@ public abstract class Empleado {
         this.fechaEntada = fechaEntada;
     }
 
-    public int numTelefono() {
+    public String numTelefono() {
         return numTelefono;
     }
 
-    public void setNumTelefono(int numTelefono) {
+    public void setNumTelefono(String numTelefono) {
         this.numTelefono = numTelefono;
+    }
+
+    public String areaTelefono() {
+        return areaTelefono;
+    }
+
+    public void setAreaTelefono(String areaTelefono) {
+        this.areaTelefono = numTelefono;
     }
 
     public int dni() {
@@ -105,5 +114,14 @@ public abstract class Empleado {
     }
     public void asistirReunion(){
         System.out.println("asistio a la reunion");
+    }
+
+
+    @Override
+    public String toString() {
+        return "Empleado{" +
+                "numTelefono='" + numTelefono + '\'' +
+                ", areaTelefono='" + areaTelefono + '\'' +
+                '}';
     }
 }
