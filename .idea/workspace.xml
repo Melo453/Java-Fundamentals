@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="177730da-24e0-4a82-b2a6-82ac3e29a6c7" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/POO/Sistema de gestion de empleados/untitled/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/POO/Sistema de gestion de empleados/untitled/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/POO/Sistema de gestion de empleados/untitled/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/POO/Sistema de gestion de empleados/untitled/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/POO/Sistema de gestion de empleados/untitled/src/Desarrollador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/POO/Sistema de gestion de empleados/untitled/src/Empleado.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/POO/Sistema de gestion de empleados/untitled/src/Gerente.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/POO/Sistema de gestion de empleados/untitled/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/POO/Sistema de gestion de empleados/untitled/untitled.iml" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="2tJN6Oam4PJ38Z1zkH4stIjWbra" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/home/fabrizio/Desktop/Java-Fundamentals"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="177730da-24e0-4a82-b2a6-82ac3e29a6c7" name="Changes" comment="" />
+      <created>1740066041243</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1740066041243</updated>
+    </task>
+    <servers />
+  </component>
+</project>
