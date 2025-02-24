@@ -1,4 +1,6 @@
-public class Arquero extends Personaje{
+package Main.Model.Personaje;
+
+public class Arquero extends Personaje {
     public Arquero() {
     }
 

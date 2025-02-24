@@ -1,4 +1,6 @@
-public class Mago extends Personaje{
+package Main.Model.Personaje;
+
+public class Mago extends Personaje {
     public Mago() {
     }
 

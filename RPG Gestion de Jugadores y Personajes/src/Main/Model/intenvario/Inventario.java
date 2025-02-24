@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+package Main.Model.intenvario;
+
 import java.util.List;
 
 public class Inventario {

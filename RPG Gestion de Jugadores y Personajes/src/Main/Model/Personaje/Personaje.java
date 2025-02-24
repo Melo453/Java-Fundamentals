@@ -1,3 +1,5 @@
+package Main.Model.Personaje;
+
 public abstract class Personaje {
 
     protected String nombrePersonaje;

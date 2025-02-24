@@ -1,3 +1,5 @@
+package Main.Model.jugador;
+
 import java.util.Date;
 import java.util.Set;
 
