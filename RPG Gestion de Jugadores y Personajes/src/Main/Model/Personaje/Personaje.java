@@ -1,5 +1,10 @@
 package Main.Model.Personaje;
 
+import Main.Model.inventario.Inventario;
+import Main.Model.mision.Mision;
+
+import java.util.Set;
+
 public abstract class Personaje {
 
     protected String nombrePersonaje;
@@ -9,11 +14,12 @@ public abstract class Personaje {
     protected double velocidadAtaque;
     protected int experiencia;
     protected Inventario inventario;
+    private Set<Mision> misiones;
 
     public Personaje() {
     }
 
-    public Personaje(String nombrePersonaje, double nivel, int experiencia, Inventario inventario) {
+    public Personaje(String nombrePersonaje, double nivel, int experiencia, Inventario inventario, Set<Mision> misiones) {
         this.nombrePersonaje = nombrePersonaje;
         this.nivel = nivel;
         this.vida = 100;
@@ -21,6 +27,7 @@ public abstract class Personaje {
         this.velocidadAtaque = 50;
         this.experiencia = experiencia;
         this.inventario = inventario;
+        this.misiones = misiones;
     }
 
     protected boolean consumirMana(int cantidad) {

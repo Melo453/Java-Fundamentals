@@ -1,17 +1,19 @@
 package Main.Model.jugador;
 
+import Main.Model.logro.Logro;
+
 import java.util.Date;
 import java.util.Set;
 
 public class Perfil {
     private int idPerfil;
     private Date fechaCreacion;
-    private Set<String> logros;
+    private Set<Logro> logros;
 
     public Perfil() {
     }
 
-    public Perfil(int idPerfil, Date fechaCreacion, Set<String> logros) {
+    public Perfil(int idPerfil, Date fechaCreacion, Set<Logro> logros) {
         this.idPerfil = idPerfil;
         this.fechaCreacion = fechaCreacion;
         this.logros = logros;
@@ -35,11 +37,11 @@ public class Perfil {
         return this;
     }
 
-    public Set<String> logros() {
+    public Set<Logro> logros() {
         return logros;
     }
 
-    public Perfil setLogros(Set<String> logros) {
+    public Perfil setLogros(Set<Logro> logros) {
         this.logros = logros;
         return this;
     }

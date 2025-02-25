@@ -1,5 +1,7 @@
 package Main.Model.jugador;
 
+import Main.Model.Personaje.Personaje;
+
 import java.util.Date;
 import java.util.List;
 
@@ -15,4 +17,13 @@ public class Jugador {
     public Jugador() {
     }
 
+    public Jugador(String nombre, String apellido, String edad, String email, Date fechaNacimiento, Perfil perfil, List<Personaje> personaje) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.edad = edad;
+        this.email = email;
+        this.fechaNacimiento = fechaNacimiento;
+        this.perfil = perfil;
+        this.personaje = personaje;
+    }
 }
