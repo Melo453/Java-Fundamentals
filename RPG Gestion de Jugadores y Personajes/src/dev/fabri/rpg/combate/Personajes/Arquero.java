@@ -18,11 +18,18 @@ public class Arquero extends Personaje {
         this.vida = 140;
         this.mana = 80;
         this.velocidadAtaque = 2;
+        this.minDamage = 15;
+        this.maxDamage = 18;
     }
 
     @Override
-    protected void atacar(CombateEntity objetivo) {
-
+    public void atacar(CombateEntity objetivo) {
+        if (golpeExitoso()){
+            int danio = calcularDanioBase();
+            System.out.println("El " + nombrePersonaje + "le quito " + danio + "a " + objetivo.nombrePersonaje());
+            objetivo.recibirDanio(danio);
+        }else
+            System.out.println("El ataque ha fallado.");
     }
     @Override
     protected void habilidadEspecial() {

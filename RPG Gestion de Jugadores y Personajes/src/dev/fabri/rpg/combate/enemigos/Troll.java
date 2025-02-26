@@ -12,11 +12,18 @@ public class Troll extends Enemigo{
         this.vida = 220;
         this.mana = 40;
         this.velocidadAtaque = 0.6;
+        this.minDamage = 25;
+        this.maxDamage = 28;
     }
 
     @Override
-    protected void atacar(CombateEntity objetivo) {
-
+    public void atacar(CombateEntity objetivo) {
+        if (golpeExitoso()){
+            int danio = calcularDanioBase();
+            System.out.println("El " + nombrePersonaje + "le quito " + danio + "a " + objetivo.nombrePersonaje());
+            objetivo.recibirDanio(danio);
+        }else
+            System.out.println("El ataque ha fallado.");
     }
 
     @Override

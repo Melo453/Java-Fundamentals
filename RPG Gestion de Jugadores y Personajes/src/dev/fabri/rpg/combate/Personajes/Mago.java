@@ -16,11 +16,18 @@ public class Mago extends Personaje {
         this.vida = 120;
         this.mana = 170;
         this.velocidadAtaque = 1.2;
+        this.minDamage = 20;
+        this.maxDamage = 25;
     }
 
     @Override
-    protected void atacar(CombateEntity objetivo) {
-
+    public void atacar(CombateEntity objetivo) {
+        if (golpeExitoso()){
+            int danio = calcularDanioBase();
+            System.out.println("El " + nombrePersonaje + "le quito " + danio + "a " + objetivo.nombrePersonaje());
+            objetivo.recibirDanio(danio);
+        }else
+            System.out.println("El ataque ha fallado.");
     }
 
     @Override

@@ -12,11 +12,18 @@ public class Goblin extends Enemigo{
         this.vida = 80;
         this.mana = 30;
         this.velocidadAtaque = 1.5;
+        this.minDamage = 10;
+        this.maxDamage = 12;
     }
 
     @Override
-    protected void atacar(CombateEntity objetivo) {
-
+    public void atacar(CombateEntity objetivo) {
+        if (golpeExitoso()){
+            int danio = calcularDanioBase();
+            System.out.println("El " + nombrePersonaje + "le quito " + danio + "a " + objetivo.nombrePersonaje());
+            objetivo.recibirDanio(danio);
+        }else
+            System.out.println("El ataque ha fallado.");
     }
 
     @Override

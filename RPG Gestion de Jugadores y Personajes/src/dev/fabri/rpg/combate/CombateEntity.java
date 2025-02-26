@@ -37,7 +37,7 @@ public abstract class CombateEntity {
         }
     }
 
-    protected void recibirDanio(int puntos){
+    public void recibirDanio(int puntos){
         vida -= puntos;
     }
 
@@ -45,7 +45,7 @@ public abstract class CombateEntity {
 
     }
 
-    protected abstract void atacar(CombateEntity objetivo);
+    public abstract void atacar(CombateEntity objetivo);
     protected abstract void habilidadEspecial();
 
     protected int calcularDanioBase(){
@@ -57,5 +57,13 @@ public abstract class CombateEntity {
     }
     public String nombrePersonaje() {
         return nombrePersonaje;
+    }
+
+    public double velocidadAtaque() {
+        return velocidadAtaque;
+    }
+
+    public double vida() {
+        return vida;
     }
 }

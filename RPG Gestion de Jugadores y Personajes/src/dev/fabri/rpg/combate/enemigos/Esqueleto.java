@@ -11,11 +11,18 @@ public class Esqueleto extends Enemigo{
         this.vida = 100;
         this.mana = 0;
         this.velocidadAtaque = 1.2;
+        this.minDamage = 15;
+        this.maxDamage = 18;
     }
 
     @Override
-    protected void atacar(CombateEntity objetivo) {
-
+    public void atacar(CombateEntity objetivo) {
+        if (golpeExitoso()){
+            int danio = calcularDanioBase();
+            System.out.println("El " + nombrePersonaje + "le quito " + danio + "a " + objetivo.nombrePersonaje());
+            objetivo.recibirDanio(danio);
+        }else
+            System.out.println("El ataque ha fallado.");
     }
 
     @Override
