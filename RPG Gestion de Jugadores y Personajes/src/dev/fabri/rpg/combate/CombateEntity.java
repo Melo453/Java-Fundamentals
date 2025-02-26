@@ -10,6 +10,9 @@ public abstract class CombateEntity {
     protected double mana;
     protected double velocidadAtaque;
     protected int experiencia;
+    protected int minDamage;
+    protected int maxDamage;
+    protected static final double PROBABILIDAD_GOLPE = 0.85;
 
 
     public CombateEntity() {
@@ -44,4 +47,15 @@ public abstract class CombateEntity {
 
     protected abstract void atacar(CombateEntity objetivo);
     protected abstract void habilidadEspecial();
+
+    protected int calcularDanioBase(){
+        return (int) (Math.random() * (maxDamage - minDamage +1) + minDamage);
+    }
+
+    protected boolean golpeExitoso(){
+        return Math.random() <= PROBABILIDAD_GOLPE;
+    }
+    public String nombrePersonaje() {
+        return nombrePersonaje;
+    }
 }

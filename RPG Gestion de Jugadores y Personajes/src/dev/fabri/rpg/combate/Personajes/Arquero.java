@@ -1,4 +1,5 @@
-package dev.Model.Personaje;
+package dev.fabri.rpg.combate.Personajes;
+
 
 import dev.Model.inventario.Inventario;
 import dev.Model.mision.Mision;
