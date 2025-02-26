@@ -23,12 +23,12 @@ public class Esqueleto extends Enemigo implements ICritico {
             int danioBase = calcularDanioBase();
             if (Math.random() <= calcularProbabilidadAtaqueCritico()){
                 double danioCritico = aplicarAtaqueCritico(danioBase);
-                System.out.println("¡Golpe Crítico! El " + nombrePersonaje +
+                System.out.println("¡Golpe Crítico! " + nombrePersonaje +
                         " le quito " + danioCritico + " de vida a " + objetivo.nombrePersonaje());
                 System.out.println("Al personaje " + objetivo.nombrePersonaje() + " le queda " + objetivo.vida() + " de vida");
                 objetivo.recibirDanio((int) danioCritico);
             }else{
-                System.out.println("El " + nombrePersonaje + " le quito " + danioBase + " de vida a " + objetivo.nombrePersonaje());
+                System.out.println(" " + nombrePersonaje + " le quito " + danioBase + " de vida a " + objetivo.nombrePersonaje());
                 System.out.println("Al personaje " + objetivo.nombrePersonaje() + " le queda " + objetivo.vida() + " de vida");
                 objetivo.recibirDanio(danioBase);
             }

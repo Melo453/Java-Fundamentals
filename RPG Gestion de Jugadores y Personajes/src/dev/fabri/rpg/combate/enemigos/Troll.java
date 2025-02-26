@@ -1,8 +1,9 @@
 package dev.fabri.rpg.combate.enemigos;
 
+import dev.fabri.rpg.Interfaces.ICritico;
 import dev.fabri.rpg.combate.CombateEntity;
 
-public class Troll extends Enemigo{
+public class Troll extends Enemigo implements ICritico {
 
     public Troll() {
     }
@@ -19,10 +20,18 @@ public class Troll extends Enemigo{
     @Override
     public void atacar(CombateEntity objetivo) {
         if (golpeExitoso()){
-            int danio = calcularDanioBase();
-            System.out.println("El " + nombrePersonaje + " le quito " + danio + " de vida a " + objetivo.nombrePersonaje());
-            System.out.println("Al personaje " + objetivo.nombrePersonaje() + " le queda " + objetivo.vida() + " de vida");
-            objetivo.recibirDanio(danio);
+            int danioBase = calcularDanioBase();
+            if (Math.random() <= calcularProbabilidadAtaqueCritico()){
+                double danioCritico = aplicarAtaqueCritico(danioBase);
+                System.out.println("¡Golpe Crítico! " + nombrePersonaje +
+                        " le quito " + danioCritico + " de vida a " + objetivo.nombrePersonaje());
+                System.out.println("Al personaje " + objetivo.nombrePersonaje() + " le queda " + objetivo.vida() + " de vida");
+                objetivo.recibirDanio((int) danioCritico);
+            }else{
+                System.out.println(" " + nombrePersonaje + " le quito " + danioBase + " de vida a " + objetivo.nombrePersonaje());
+                System.out.println("Al personaje " + objetivo.nombrePersonaje() + " le queda " + objetivo.vida() + " de vida");
+                objetivo.recibirDanio(danioBase);
+            }
         }else
             System.out.println(nombrePersonaje + " ha fallado el ataque."); 
  
@@ -32,5 +41,15 @@ public class Troll extends Enemigo{
     @Override
     protected void habilidadEspecial() {
 
+    }
+
+    @Override
+    public double aplicarAtaqueCritico(int danioBase) {
+        return danioBase * 1.6;
+    }
+
+    @Override
+    public double calcularProbabilidadAtaqueCritico() {
+        return 0.1;
     }
 }
