@@ -38,7 +38,7 @@ public abstract class CombateEntity {
     }
 
     public void recibirDanio(int puntos){
-        vida -= puntos;
+        this.vida -= puntos;
     }
 
     protected void subirNivel(){
@@ -64,6 +64,6 @@ public abstract class CombateEntity {
     }
 
     public double vida() {
-        return vida;
+        return this.vida;
     }
 }

@@ -24,10 +24,13 @@ public class Mago extends Personaje {
     public void atacar(CombateEntity objetivo) {
         if (golpeExitoso()){
             int danio = calcularDanioBase();
-            System.out.println("El " + nombrePersonaje + "le quito " + danio + "a " + objetivo.nombrePersonaje());
+            System.out.println("El " + nombrePersonaje + " le quito " + danio + " de vida a " + objetivo.nombrePersonaje());
+            System.out.println("Al enemigo " + objetivo.nombrePersonaje() + " le queda " + objetivo.vida() + " de vida");
             objetivo.recibirDanio(danio);
         }else
-            System.out.println("El ataque ha fallado.");
+            System.out.println(nombrePersonaje + " ha fallado el ataque."); 
+ 
+
     }
 
     @Override

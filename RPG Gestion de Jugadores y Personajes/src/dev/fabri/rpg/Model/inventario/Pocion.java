@@ -1,6 +1,6 @@
-package dev.Model.inventario;
+package dev.fabri.rpg.Model.inventario;
 
-import dev.Interfaces.IConsumible;
+import dev.fabri.rpg.Interfaces.IConsumible;
 
 public abstract class Pocion implements IConsumible {
 

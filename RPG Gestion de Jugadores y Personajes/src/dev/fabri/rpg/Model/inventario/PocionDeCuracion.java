@@ -1,8 +1,9 @@
-package dev.Model.inventario;
+package dev.fabri.rpg.Model.inventario;
 
+import dev.fabri.rpg.Model.inventario.Pocion;
 import dev.fabri.rpg.combate.Personajes.Personaje;
 
-public class PocionDeCuracion extends Pocion{
+public class PocionDeCuracion extends Pocion {
     private final int puntosCuracion = 20;
 
     public PocionDeCuracion() {
