@@ -2,12 +2,13 @@ package dev.fabri.rpg.combate.Personajes;
 
 import dev.Model.inventario.Inventario;
 import dev.Model.mision.Mision;
+import dev.fabri.rpg.Interfaces.ICritico;
 import dev.fabri.rpg.combate.CombateEntity;
 import dev.fabri.rpg.combate.Personajes.Personaje;
 
 import java.util.Set;
 
-public class Guerrero extends Personaje {
+public class Guerrero extends Personaje implements ICritico {
 
     public Guerrero() {
     }
@@ -24,10 +25,18 @@ public class Guerrero extends Personaje {
     @Override
     public void atacar(CombateEntity objetivo) {
         if (golpeExitoso()){
-            int danio = calcularDanioBase();
-            System.out.println("El " + nombrePersonaje + " le quito " + danio + " de vida a " + objetivo.nombrePersonaje());
-            System.out.println("Al enemigo " + objetivo.nombrePersonaje() + " le queda " + objetivo.vida() + " de vida");
-            objetivo.recibirDanio(danio);
+            int danioBase = calcularDanioBase();
+            if (Math.random() <= calcularProbabilidadAtaqueCritico()){
+                double danioCritico = aplicarAtaqueCritico(danioBase);
+                System.out.println("¡Golpe Crítico! El " + nombrePersonaje +
+                        " le quito " + danioCritico + " de vida a " + objetivo.nombrePersonaje());
+                System.out.println("Al enemigo " + objetivo.nombrePersonaje() + " le queda " + objetivo.vida() + " de vida");
+                objetivo.recibirDanio((int) danioCritico);
+            }else {
+                System.out.println("El " + nombrePersonaje + " le quito " + danioBase + " de vida a " + objetivo.nombrePersonaje());
+                System.out.println("Al enemigo " + objetivo.nombrePersonaje() + " le queda " + objetivo.vida() + " de vida");
+                objetivo.recibirDanio(danioBase);
+            }
         }else
             System.out.println(nombrePersonaje + " ha fallado el ataque."); 
  
@@ -37,5 +46,15 @@ public class Guerrero extends Personaje {
     @Override
     protected void habilidadEspecial() {
 
+    }
+
+    @Override
+    public double aplicarAtaqueCritico(int danioBase) {
+        return danioBase * 1.5;
+    }
+
+    @Override
+    public double calcularProbabilidadAtaqueCritico() {
+        return 0.1;
     }
 }

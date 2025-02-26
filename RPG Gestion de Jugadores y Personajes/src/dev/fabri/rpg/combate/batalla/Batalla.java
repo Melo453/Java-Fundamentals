@@ -13,8 +13,6 @@ public class Batalla {
             double baseCooldownEnemigo = 1.0 / enemigo.velocidadAtaque();;
 
             double tiempo = 0.1;
-            double vida = personaje.vida();
-            double vida2 = enemigo.vida();
             while (personaje.vida() > 0.0 && enemigo.vida() > 0.0){
                 if (cooldownPersonaje <= 0.0 && cooldownEnemigo <= 0.0){
                     personaje.atacar(enemigo);
