@@ -40,4 +40,13 @@ public class Inventario {
     public boolean removeItem(IConsumible item){
         return items.remove(item);
     }
+
+    public IConsumible obtenerTipoConsumible(Class<?> tipo){
+        for (IConsumible item : items){
+            if (tipo.isInstance(item)){
+                return item;
+            }
+        }
+        return null;
+    }
 }

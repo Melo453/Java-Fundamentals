@@ -4,6 +4,7 @@ import dev.Model.inventario.Inventario;
 import dev.fabri.rpg.Interfaces.IConsumible;
 import dev.fabri.rpg.Model.inventario.Pocion;
 import dev.fabri.rpg.Model.inventario.PocionDeCuracion;
+import dev.fabri.rpg.Model.inventario.PocionDeDanio;
 import dev.fabri.rpg.combate.Personajes.Arquero;
 import dev.fabri.rpg.combate.Personajes.Guerrero;
 import dev.fabri.rpg.combate.Personajes.Mago;
@@ -48,6 +49,7 @@ public class Main {
         Inventario inventario = new Inventario();
         for (int i = 0; i < 5; i++) {
             inventario.addItem(new PocionDeCuracion());
+            inventario.addItem(new PocionDeDanio());
         }
         Guerrero guerrero = new Guerrero("Fabri", 0,0, inventario, null);
 

@@ -1,6 +1,8 @@
 package dev.fabri.rpg.combate.batalla;
 
 import dev.fabri.rpg.Interfaces.IConsumible;
+import dev.fabri.rpg.Model.inventario.PocionDeCuracion;
+import dev.fabri.rpg.Model.inventario.PocionDeDanio;
 import dev.fabri.rpg.combate.CombateEntity;
 import dev.fabri.rpg.combate.Personajes.Personaje;
 
@@ -27,13 +29,22 @@ public class Batalla {
                         if (personaje instanceof Personaje){
                             Personaje pj = (Personaje) personaje;
                             if (!pj.inventario().items().isEmpty()){
-                                IConsumible pocion = pj.inventario().items().get(0);
-                                pocion.consumir(pj);
-                                System.out.println("hola");
-                                pj.inventario().removeItem(pocion);
+                                IConsumible pocionCuracion = pj.inventario().obtenerTipoConsumible(PocionDeCuracion.class);
+                                pocionCuracion.consumir(pj);
+                                pj.inventario().removeItem(pocionCuracion);
                             }
                         }
-                    }else
+                    } else if (Math.random() <= 0.4){
+                            if (personaje instanceof Personaje) {
+                                Personaje pj = (Personaje) personaje;
+                                if (!pj.inventario().items().isEmpty()) {
+                                    IConsumible pocionDanio = pj.inventario().obtenerTipoConsumible(PocionDeDanio.class);
+                                    pocionDanio.lanzar(enemigo);
+                                    pj.inventario().removeItem(pocionDanio);
+                                }
+                            }
+                    }
+                    else
                         personaje.atacar(enemigo);
 
                     cooldownPersonaje = baseCooldownPersonaje;

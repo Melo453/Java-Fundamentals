@@ -15,7 +15,7 @@ public class PocionDeCuracion extends Pocion {
     @Override
     public void consumir(CombateEntity objetivo) {
         objetivo.recuperarVida(puntosCuracion);
-        System.out.println(objetivo + " se lanzo una pocion de curacion +" + puntosCuracion + " de vida, ahora tiene " + objetivo.vida() + " de vida");
+        System.out.println(objetivo.nombrePersonaje() + " se lanzo una pocion de curacion +" + puntosCuracion + " de vida, ahora tiene " + objetivo.vida() + " de vida");
     }
 
     @Override
