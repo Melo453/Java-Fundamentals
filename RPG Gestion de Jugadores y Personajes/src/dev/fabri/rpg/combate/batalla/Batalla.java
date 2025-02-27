@@ -32,26 +32,33 @@ public class Batalla {
       double cooldownPersonaje = 0;
       double cooldownEnemigo = 0;
 
+      // Calcula el cooldown base según la velocidad de ataque
       double baseCooldownPersonaje = 1.0 / personaje.velocidadAtaque();
       double baseCooldownEnemigo = 1.0 / enemigo.velocidadAtaque();
 
+      // Delta de tiempo para simular el paso del tiempo en cada iteración
       double tiempo = 0.1;
       while (personaje.vida() > 0.0 && enemigo.vida() > 0.0) {
         if (cooldownPersonaje <= 0.0 && cooldownEnemigo <= 0.0) {
+          // Ambos atacan simultáneamente
           personaje.atacar(enemigo);
           enemigo.atacar(personaje);
 
+          // se resetea el cooldown
           cooldownPersonaje = baseCooldownPersonaje;
           cooldownEnemigo = baseCooldownEnemigo;
         } else if (cooldownPersonaje <= 0.0) {
+          // Ejecuta acción del personaje (ataque o uso de pociones) y resetea el cooldown
           ejecutarAccionPersonaje(personaje, enemigo);
           cooldownPersonaje = baseCooldownPersonaje;
         } else if (cooldownEnemigo <= 0.0) {
+          // El enemigo ataca y resetea el cooldown
           enemigo.atacar(personaje);
 
           cooldownEnemigo = baseCooldownEnemigo;
         }
 
+        // Disminuye los cooldowns en función del tiempo transcurrido
         cooldownEnemigo -= tiempo;
         cooldownPersonaje -= tiempo;
 
@@ -59,6 +66,7 @@ public class Batalla {
         if (cooldownPersonaje < 0.0) cooldownPersonaje = 0.0;
       }
 
+      // Determina y muestra el resultado del combate
       if (personaje.vida() <= 0 && enemigo.vida() <= 0) System.out.println("Empate");
       else if (personaje.vida() <= 0.0)
         System.out.println(enemigo.nombrePersonaje() + " gana el combate");
@@ -81,9 +89,9 @@ public class Batalla {
   private static void ejecutarAccionPersonaje(CombateEntity personaje, CombateEntity enemigo) {
     if (personaje instanceof Personaje pj) {
       double accion = Math.random();
-      if (accion <= 0.2) {
+      if (accion <= 0.2) { // 20% probabilidad: usar poción de daño
         lanzarPocionDanio(pj, enemigo);
-      } else if (accion <= 0.4) {
+      } else if (accion <= 0.4) { // 20% probabilidad: usar poción de curación
         consumirPocionCuracion(pj);
       } else {
         personaje.atacar(enemigo);
@@ -92,8 +100,8 @@ public class Batalla {
   }
 
   /**
-   * Intenta consumir una poción de curación del inventario del personaje.
-   * Si se encuentra, la consume y se elimina del inventario.
+   * Intenta consumir una poción de curación del inventario del personaje. Si se encuentra, la
+   * consume y se elimina del inventario.
    *
    * @param pj El personaje que consumirá la poción.
    * @return true si se consumió una poción, false si no había.
