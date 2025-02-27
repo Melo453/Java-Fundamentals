@@ -25,28 +25,7 @@ public class Batalla {
                     cooldownPersonaje = baseCooldownPersonaje;
                     cooldownEnemigo = baseCooldownEnemigo;
                 } else if (cooldownPersonaje <= 0.0){
-                    if (Math.random() <= 0.4){
-                        if (personaje instanceof Personaje){
-                            Personaje pj = (Personaje) personaje;
-                            if (!pj.inventario().items().isEmpty()){
-                                IConsumible pocionCuracion = pj.inventario().obtenerTipoConsumible(PocionDeCuracion.class);
-                                pocionCuracion.consumir(pj);
-                                pj.inventario().removeItem(pocionCuracion);
-                            }
-                        }
-                    } else if (Math.random() <= 0.4){
-                            if (personaje instanceof Personaje) {
-                                Personaje pj = (Personaje) personaje;
-                                if (!pj.inventario().items().isEmpty()) {
-                                    IConsumible pocionDanio = pj.inventario().obtenerTipoConsumible(PocionDeDanio.class);
-                                    pocionDanio.lanzar(enemigo);
-                                    pj.inventario().removeItem(pocionDanio);
-                                }
-                            }
-                    }
-                    else
-                        personaje.atacar(enemigo);
-
+                    ejecutarAccionPersonaje(personaje,enemigo);
                     cooldownPersonaje = baseCooldownPersonaje;
                 }
                 else if (cooldownEnemigo <= 0.0){
@@ -65,7 +44,7 @@ public class Batalla {
 
             if (personaje.vida() <= 0 && enemigo.vida() <= 0)
                 System.out.println("Empate");
-            else if (personaje.vida() <=0.0)
+            else if (personaje.vida() <= 0.0)
                 System.out.println(enemigo.nombrePersonaje() + " gana el combate");
             else
                 System.out.println(personaje.nombrePersonaje() + " gana el combate");
@@ -77,5 +56,38 @@ public class Batalla {
         }
     }
 
+    private static void ejecutarAccionPersonaje(CombateEntity personaje, CombateEntity enemigo){
+        if (personaje instanceof Personaje){
+            Personaje pj = (Personaje) personaje;
+            double accion = Math.random();
+            if (accion <= 0.2){
+                lanzarPocionDanio(pj,enemigo);
+            }else if (accion <= 0.4){
+                consumirPocionCuracion(pj);
+            }else {
+                personaje.atacar(enemigo);
+            }
+        }
+    }
+    private static boolean consumirPocionCuracion(Personaje pj){
+        IConsumible pocionCuracion = pj.inventario().obtenerTipoConsumible(PocionDeCuracion.class);
+        if (pocionCuracion != null){
+            pocionCuracion.consumir(pj);
+            pj.inventario().removeItem(pocionCuracion);
+            return true;
+        }
+        System.out.println(pj.nombrePersonaje() + " se quedo sin pociones.");
+        return false;
+    }
 
+    private static boolean lanzarPocionDanio(Personaje pj, CombateEntity enemigo){
+        IConsumible pocionDanio = pj.inventario().obtenerTipoConsumible(PocionDeDanio.class);
+        if (pocionDanio != null){
+            pocionDanio.lanzar(enemigo);
+            pj.inventario().removeItem(pocionDanio);
+            return true;
+        }
+        System.out.println(pj.nombrePersonaje() + " se quedo sin pociones.");
+        return false;
+    }
 }
