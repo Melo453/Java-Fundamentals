@@ -1,5 +1,5 @@
 package dev.fabri.rpg.Model.inventario;
-import dev.fabri.rpg.combate.Personajes.Personaje;
+import dev.fabri.rpg.combate.CombateEntity;
 
 public class PocionDeDanio extends Pocion {
     private int puntosDanio = 30;
@@ -10,12 +10,12 @@ public class PocionDeDanio extends Pocion {
 
 
     @Override
-    public void consumir(Personaje objetivo) {
+    public void consumir(CombateEntity objetivo) {
 
     }
 
     @Override
-    public void lanzar(Personaje objetivo) {
+    public void lanzar(CombateEntity objetivo) {
 
     }
 }

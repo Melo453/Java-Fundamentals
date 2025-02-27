@@ -1,6 +1,8 @@
 package dev.fabri.rpg.combate.batalla;
 
+import dev.fabri.rpg.Interfaces.IConsumible;
 import dev.fabri.rpg.combate.CombateEntity;
+import dev.fabri.rpg.combate.Personajes.Personaje;
 
 public class Batalla {
 
@@ -21,7 +23,18 @@ public class Batalla {
                     cooldownPersonaje = baseCooldownPersonaje;
                     cooldownEnemigo = baseCooldownEnemigo;
                 } else if (cooldownPersonaje <= 0.0){
-                    personaje.atacar(enemigo);
+                    if (Math.random() <= 0.4){
+                        if (personaje instanceof Personaje){
+                            Personaje pj = (Personaje) personaje;
+                            if (!pj.inventario().items().isEmpty()){
+                                IConsumible pocion = pj.inventario().items().get(0);
+                                pocion.consumir(pj);
+                                System.out.println("hola");
+                                pj.inventario().removeItem(pocion);
+                            }
+                        }
+                    }else
+                        personaje.atacar(enemigo);
 
                     cooldownPersonaje = baseCooldownPersonaje;
                 }

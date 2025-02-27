@@ -24,4 +24,7 @@ public abstract class Personaje extends CombateEntity {
 
     }
 
+    public Inventario inventario() {
+        return inventario;
+    }
 }

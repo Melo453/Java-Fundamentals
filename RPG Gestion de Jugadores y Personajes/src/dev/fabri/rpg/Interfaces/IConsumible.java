@@ -1,8 +1,9 @@
 package dev.fabri.rpg.Interfaces;
 
-import dev.fabri.rpg.combate.Personajes.Personaje;
+import dev.fabri.rpg.combate.CombateEntity;
+
 
 public interface IConsumible {
-    void consumir(Personaje objetivo);
-    void lanzar(Personaje objetivo);
+    void consumir(CombateEntity objetivo);
+    void lanzar(CombateEntity objetivo);
 }

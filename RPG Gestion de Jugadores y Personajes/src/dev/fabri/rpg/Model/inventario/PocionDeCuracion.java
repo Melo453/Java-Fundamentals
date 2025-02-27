@@ -1,23 +1,25 @@
 package dev.fabri.rpg.Model.inventario;
 
-import dev.fabri.rpg.Model.inventario.Pocion;
+
+import dev.fabri.rpg.combate.CombateEntity;
 import dev.fabri.rpg.combate.Personajes.Personaje;
 
 public class PocionDeCuracion extends Pocion {
-    private final int puntosCuracion = 20;
+    private final int puntosCuracion = 100;
 
     public PocionDeCuracion() {
-        super("Pocion de Curacion", "Restaura 20 puntos de vida al ser consumida.");
+        super("Pocion de Curacion", "Restaura 100 puntos de vida al ser consumida.");
 
     }
 
     @Override
-    public void consumir(Personaje objetivo) {
-
+    public void consumir(CombateEntity objetivo) {
+        objetivo.recuperarVida(puntosCuracion);
+        System.out.println(objetivo + " se lanzo una pocion de curacion +" + puntosCuracion + " de vida, ahora tiene " + objetivo.vida() + " de vida");
     }
 
     @Override
-    public void lanzar(Personaje objetivo) {
+    public void lanzar(CombateEntity objetivo) {
 
     }
 }

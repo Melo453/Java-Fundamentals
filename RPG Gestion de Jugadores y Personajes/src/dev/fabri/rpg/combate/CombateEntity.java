@@ -66,4 +66,8 @@ public abstract class CombateEntity {
     public double vida() {
         return this.vida;
     }
+    public void recuperarVida(int puntos){
+        this.vida += puntos;
+    }
+
 }
