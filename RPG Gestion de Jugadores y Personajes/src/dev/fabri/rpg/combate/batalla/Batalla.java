@@ -6,8 +6,27 @@ import dev.fabri.rpg.Model.inventario.PocionDeDanio;
 import dev.fabri.rpg.combate.CombateEntity;
 import dev.fabri.rpg.combate.Personajes.Personaje;
 
+/**
+ * Clase que simula una batalla entre dos entidades de combate. La batalla se ejecuta de forma
+ * automática basándose en cooldowns, permitiendo que el personaje decida acciones especiales (como
+ * consumir pociones) de forma aleatoria mientras el enemigo ataca automáticamente.
+ *
+ * <p>Esta clase contiene métodos estáticos para iniciar el combate y para ejecutar acciones
+ * específicas del personaje, como consumir pociones de curación o lanzar pociones de daño.
+ *
+ * @author
+ * @version 1.0
+ */
 public class Batalla {
 
+  /**
+   * Inicia el combate entre dos entidades. El combate se simula en un bucle, donde se alternan las
+   * acciones de ataque y el uso de ítems basados en cooldowns.
+   *
+   * @param personaje La entidad que representa al personaje (debe ser instancia de Personaje para
+   *     usar ítems).
+   * @param enemigo La entidad que representa al enemigo.
+   */
   public static void iniciarCombate(CombateEntity personaje, CombateEntity enemigo) {
     try {
       double cooldownPersonaje = 0;
@@ -52,6 +71,13 @@ public class Batalla {
     }
   }
 
+  /**
+   * Ejecuta la acción del personaje cuando su cooldown llega a cero. Se decide de forma aleatoria
+   * si el personaje usa una poción de daño, una poción de curación, o ataca normalmente.
+   *
+   * @param personaje La entidad del personaje (se asume que es instancia de Personaje).
+   * @param enemigo La entidad del enemigo, a quien se puede aplicar el ataque o efecto.
+   */
   private static void ejecutarAccionPersonaje(CombateEntity personaje, CombateEntity enemigo) {
     if (personaje instanceof Personaje pj) {
       double accion = Math.random();
@@ -65,6 +91,13 @@ public class Batalla {
     }
   }
 
+  /**
+   * Intenta consumir una poción de curación del inventario del personaje.
+   * Si se encuentra, la consume y se elimina del inventario.
+   *
+   * @param pj El personaje que consumirá la poción.
+   * @return true si se consumió una poción, false si no había.
+   */
   private static boolean consumirPocionCuracion(Personaje pj) {
     IConsumible pocionCuracion = pj.inventario().obtenerTipoConsumible(PocionDeCuracion.class);
     if (pocionCuracion != null) {
@@ -76,6 +109,14 @@ public class Batalla {
     return false;
   }
 
+  /**
+   * Intenta lanzar una poción de daño desde el inventario del personaje hacia el enemigo. Si se
+   * encuentra, se lanza y se elimina del inventario.
+   *
+   * @param pj El personaje que lanzará la poción.
+   * @param enemigo El objetivo sobre el que se lanzará la poción.
+   * @return true si se lanzó la poción, false si no había.
+   */
   private static boolean lanzarPocionDanio(Personaje pj, CombateEntity enemigo) {
     IConsumible pocionDanio = pj.inventario().obtenerTipoConsumible(PocionDeDanio.class);
     if (pocionDanio != null) {
