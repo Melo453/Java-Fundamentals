@@ -1,4 +1,3 @@
-package dev.Model.logro;
+package dev.fabri.rpg.Model.logro;
 
-public class LogoManager {
-}
+public class LogoManager {}

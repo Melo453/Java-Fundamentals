@@ -1,6 +1,7 @@
 package dev.fabri.rpg.Interfaces;
 
 public interface ICritico {
-    double aplicarAtaqueCritico(int danioBase);
-    double calcularProbabilidadAtaqueCritico();
+  double aplicarAtaqueCritico(int danioBase);
+
+  double calcularProbabilidadAtaqueCritico();
 }
